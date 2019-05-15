@@ -1,14 +1,26 @@
-var questions = [];
-$(document).ready(function () {
-		$.ajax({
-			type: "POST",
-			url: 'conn.php',
-			data: $(this).serialize(),
-			success: function (response) {
-				questions = (response);
-			}
-		});
-});
+var questionsx = '';
+
+function sendPost() {
+	var questionsx = '';
+	$.ajax({
+		type: "POST",
+		url: 'conn.php',
+		async: false, //blocks window close
+
+		data: $(this).serialize(),
+		success: function (response) {
+			questionsx = response;
+
+		}
+	});
+	return questionsx
+}
+
+var response = sendPost();
+
+var questions = JSON.parse(response);
+
+console.log(questions);
 // 1
 //var questions = [];
 /*var questions = [
@@ -96,10 +108,10 @@ var points,
 	currentQuestion,
 	questionTimer,
 	timeForQuestion = 10, // seconds
-	timeLeftForQuestion; 
+	timeLeftForQuestion;
 
 // 4
-$(function() {
+$(function () {
 
 	// 
 	$('button.start').click(start);
@@ -108,7 +120,7 @@ $(function() {
 
 	function restart() {
 		points = 0;
-		pointsPerQuestion = questions.length/5;
+		pointsPerQuestion = questions.length / 5;
 		currentQuestion = 0;
 		timeLeftForQuestion = timeForQuestion;
 
@@ -123,7 +135,7 @@ $(function() {
 
 	// 
 	function start() {
-		$('div.start').fadeOut(200, function() {
+		$('div.start').fadeOut(200, function () {
 			moveToNextQuestion();
 		});
 	}
@@ -150,7 +162,7 @@ $(function() {
 	function moveToNextQuestion() {
 		currentQuestion += 1;
 		if (currentQuestion > 1) {
-			$('.question.card:nth-child(' + (currentQuestion-1) + ')').hide();
+			$('.question.card:nth-child(' + (currentQuestion - 1) + ')').hide();
 		}
 		showQuestionCardAtIndex(currentQuestion);
 		setupQuestionTimer();
@@ -174,7 +186,7 @@ $(function() {
 	function countdownTick() {
 		timeLeftForQuestion -= 1;
 		updateTime();
-		if (timeLeftForQuestion == 0) { 
+		if (timeLeftForQuestion == 0) {
 			return finish();
 		}
 		questionTimer = setTimeout(countdownTick, 1000);
@@ -193,7 +205,7 @@ $(function() {
 	// 
 	function optionSelected() {
 		var selected = parseInt(this.value);
-		var correct = questions[currentQuestion-1][5];
+		var correct = questions[currentQuestion - 1][5];
 
 		if (selected == correct) {
 			points += pointsPerQuestion;
@@ -210,7 +222,7 @@ $(function() {
 		moveToNextQuestion();
 	}
 
-	
+
 	function correctAnimation() {
 		animatePoints('right');
 	}
@@ -223,7 +235,7 @@ $(function() {
 	// 
 	function animatePoints(cls) {
 		$('header .points').addClass('animate ' + cls);
-		setTimeout(function() {
+		setTimeout(function () {
 			$('header .points').removeClass('animate ' + cls);
 		}, 500);
 	}
