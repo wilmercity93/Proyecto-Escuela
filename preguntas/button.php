@@ -90,18 +90,16 @@
 							<label style="position:relative; top:7px;">Respuesta:</label>
 						</div>
 						<div class="col-lg-10">
-							<input type="text" name="respuesta" class="form-control" value="<?php echo $erow['respuesta']; ?>">
+							<select type="text" name="respuesta" required>
+								<option value="" >SELECCIONAR</option>
+								<option value="0">A</option>
+								<option value="1">B</option>
+								<option value="2">C</option>
+								<option value="3">D</option>
+							</select>
 						</div>
 					</div>
 					<div style="height:10px;"></div>
-					<div class="row">
-						<div class="col-lg-2">
-							<label style="position:relative; top:7px;">Prueba_id:</label>
-						</div>
-						<div class="col-lg-10">
-							<input type="text" name="prueba_id" class="form-control" value="<?php echo $erow['prueba_id']; ?>">
-						</div>
-					</div>
                 </div> 
 				</div>
                 <div class="modal-footer">

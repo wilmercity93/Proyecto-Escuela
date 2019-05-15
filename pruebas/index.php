@@ -10,7 +10,7 @@
 <div class="container">
 	<div style="height:50px;"></div>
 	<div class="well" style="margin:auto; padding:auto; width:100%;">
-	<span style="font-size:25px; color:blue"><center><strong>PRUEBAS</strong></center></span>	
+	<span style="font-size:30px; "><center><strong>PRUEBAS</strong></center></span>	
 		<span class="pull-left"><a href="#addnew" data-toggle="modal" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add New</a></span>
 		<div style="height:50px;"></div>
 		<table class="table table-striped table-bordered table-hover">
@@ -29,7 +29,8 @@
 						<td><?php echo $row['descripcion']; ?></td>
 						<td>
 							<a href="#edit<?php echo $row['id']; ?>" data-toggle="modal" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit</a> || 
-							<a href="#del<?php echo $row['id']; ?>" data-toggle="modal" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+							<a href="#del<?php echo $row['id']; ?>" data-toggle="modal" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a>|| 
+							<a href="../preguntas/index.php?id_prueba=<?php echo $row['id']; ?>"  class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span> Ver Preguntas</a>
 							<?php include('button.php'); ?>
 						</td>
 					</tr>

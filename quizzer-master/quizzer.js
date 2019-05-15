@@ -1,4 +1,4 @@
-var questionsx = '';
+var questions = '';
 
 function sendPost() {
 	var questionsx = '';
@@ -9,18 +9,18 @@ function sendPost() {
 
 		data: $(this).serialize(),
 		success: function (response) {
-			questionsx = response;
+			questions = response;
 
 		}
 	});
-	return questionsx
+	return questions
 }
 
 var response = sendPost();
 
-var questions = JSON.parse(response);
+questions = JSON.parse(response);
 
-console.log(questions);
+//console.log(questions);
 // 1
 //var questions = [];
 /*var questions = [
@@ -199,7 +199,7 @@ $(function () {
 
 	// 
 	function updatePoints() {
-		$('.points span.points').html(points + ' puntos');
+		$('.points span.points').html(points.toFixed(2) + ' puntos');
 	}
 
 	// 
@@ -245,7 +245,7 @@ $(function () {
 		if (timeLeftForQuestion == 0) {
 			$('.times_up').show();
 		}
-		$('p.final_points').html(points + ' puntos');
+		$('p.final_points').html(points.toFixed(2) + ' puntos');
 		$('.question.card:visible').hide();
 		$('.finish.card').show();
 	}

@@ -60,18 +60,25 @@
 							<label class="control-label" style="position:relative; top:7px;">Respuesta:</label>
 						</div>
 						<div class="col-lg-10">
-							<input type="number" class="form-control" name="respuesta">
+							<select type="text" name="respuesta" required>
+								<option value="" >SELECCIONAR</option>
+								<option value="0">A</option>
+								<option value="1">B</option>
+								<option value="2">C</option>
+								<option value="3">D</option>
+							</select>
 						</div>
 					</div>
 					<div style="height:10px;"></div>
+						
 					<div class="row">
 						<div class="col-lg-2">
 							<label class="control-label" style="position:relative; top:7px;">Prueba:</label>
 						</div>
-						<div class="col-lg-10">
-							<input type="number" class="form-control" name="prueba_id">
+						<div class="col-lg-10" >
+							<input type="number" class="form-control" name="prueba_id" value ="<?php echo $id_prueba ?>"  disabled>
 						</div>
-					</div>
+					</div> 
                 </div> 
 				</div>
                 <div class="modal-footer">
