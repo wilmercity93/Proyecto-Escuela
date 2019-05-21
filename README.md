@@ -4,7 +4,7 @@ Este proyecto consiste en realizar unas series de pruebas que contengan pregunta
 con la prueba, donde se obtendra un resultado final, las preguntas cuentan con un tiempo estimado y todas tienen un porcentaje 
 igual al ser evaluadas.
 
-Tenologas:
+Tecnologias:
 
 -> MySqlLi
 -> HTML5
